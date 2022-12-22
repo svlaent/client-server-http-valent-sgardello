@@ -3,18 +3,20 @@ using System.Text.Json;
 
 namespace NetCoreClient.Sensors
 {
-    class VirtualWeightSensor : IVirtualWeightSensorInterface, ISensorInterface
+    class VirtualWeightSensor : IWeightSensorInterface, ISensorInterface
     {
         private readonly Random Random;
+        private readonly string SensorName;
 
-        public VirtualWeightSensor()
+        public VirtualWeightSensor(string SensorName)
         {
             Random = new Random();
+            this.SensorName = SensorName;
         }
 
-        public int Weight()
+        public Weight Weight()
         {
-            return new Weight(Random.Next(100)).Value;
+            return new Weight(Random.Next(100), SensorName);
         }
 
         public string ToJson()

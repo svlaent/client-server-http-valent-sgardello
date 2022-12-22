@@ -2,8 +2,8 @@
 
 namespace NetCoreClient.Sensors
 {
-    interface ISpeedSensorInterface
+    internal interface IWeightSensorInterface
     {
-        Speed Speed();
+        Weight Weight();
     }
 }

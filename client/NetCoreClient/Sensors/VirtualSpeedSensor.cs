@@ -6,15 +6,17 @@ namespace NetCoreClient.Sensors
     class VirtualSpeedSensor : ISpeedSensorInterface, ISensorInterface
     {
         private readonly Random Random;
+        private readonly string SensorName;
 
-        public VirtualSpeedSensor()
+        public VirtualSpeedSensor(string SensorName)
         {
             Random = new Random();
+            this.SensorName = SensorName;
         }
 
-        public int Speed()
+        public Speed Speed()
         {
-            return new Speed(Random.Next(100)).Value;
+            return new Speed(Random.Next(100), SensorName);
         }
 
         public string ToJson()
