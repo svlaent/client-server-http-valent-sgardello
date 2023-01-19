@@ -7,8 +7,8 @@ Tipo di payload: Json
 esempio:
 ```json
 {
-    "Value": 5,
-    "Type": "sensor_name"
+    "Value": 77,
+    "Type": "Level"
 }
 ```
 
