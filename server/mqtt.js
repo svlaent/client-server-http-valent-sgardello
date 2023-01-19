@@ -3,7 +3,7 @@ const client  = mqtt.connect('mqtt://test.mosquitto.org')
 
 client.on('connect', function () {
     console.log("Connesso");
-    client.subscribe('amaro2022test/#');
+    client.subscribe('amaro2022test/valentsgardello/silos/livello/#');
 })
 
 client.on('message', function (topic, message) {
