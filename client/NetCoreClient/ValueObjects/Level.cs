@@ -1,13 +1,15 @@
 ﻿namespace NetCoreClient.ValueObjects
 {
-    internal class Speed
+    internal class Level
     {
         public int Value { get; private set; }
-        public string Type { get; private set; }
-        public Speed(int value, string type)
+        public String Type { get; private set; }
+        
+        public Level(int value, string type)
         {
             this.Value = value;
             this.Type = type;
         }
+
     }
 }

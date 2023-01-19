@@ -3,13 +3,11 @@ using NetCoreClient.Protocols;
 
 // define sensors
 List<ISensorInterface> sensors = new();
-sensors.Add(new VirtualSpeedSensor("Speed"));
-sensors.Add(new VirtualWeightSensor("Weight"));
+sensors.Add(new VirtualLevelSensor("Level"));
 
 // define protocol
-ProtocolInterface protocol = new Http("http://localhost:8011/drones/123");
-//DESKTOP - 46QRSVN
-//ProtocolInterface protocol = new Http("http://DESKTOP-46QRSVN:8011/drones/123");
+//ProtocolInterface protocol = new Http("http://localhost:8011/silos/123");
+IProtocolInterface protocol = new Mqtt("test.mosquitto.org");
 
 // send data to server
 while (true)
@@ -18,7 +16,7 @@ while (true)
     {
         var sensorValue = sensor.ToJson();
 
-        protocol.Send(sensorValue);
+        protocol.Send(sensorValue, sensor.GetSlug());
 
         Console.WriteLine("Data sent: " + sensorValue);
 

@@ -2,8 +2,8 @@
 
 namespace NetCoreClient.Sensors
 {
-    internal interface IWeightSensorInterface
+    interface ILevelSensorInterface
     {
-        Weight Weight();
+        Level Level();
     }
 }

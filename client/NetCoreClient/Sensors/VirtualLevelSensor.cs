@@ -3,25 +3,30 @@ using System.Text.Json;
 
 namespace NetCoreClient.Sensors
 {
-    class VirtualSpeedSensor : ISpeedSensorInterface, ISensorInterface
+    class VirtualLevelSensor : ILevelSensorInterface, ISensorInterface
     {
         private readonly Random Random;
         private readonly string SensorName;
 
-        public VirtualSpeedSensor(string SensorName)
+        public VirtualLevelSensor(string SensorName)
         {
             Random = new Random();
             this.SensorName = SensorName;
         }
 
-        public Speed Speed()
+        public Level Level()
         {
-            return new Speed(Random.Next(100), SensorName);
+            return new Level(Random.Next(100), SensorName);
         }
 
         public string ToJson()
         {
-            return JsonSerializer.Serialize(Speed());
+            return JsonSerializer.Serialize(Level());
+        }
+
+        public string GetSlug()
+        {
+            return "level";
         }
     }
 }
